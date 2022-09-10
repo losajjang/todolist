@@ -1,8 +1,8 @@
 import React from 'react';
 import TodosList from '../components/TodosList';
 
-function TodosContainer() {
+function TodosListContainer() {
   return <TodosList />;
 }
 
-export default TodosContainer;
+export default TodosListContainer;

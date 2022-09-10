@@ -1,10 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import TodosContainer from './containers/TodosContainer';
+import TodosContainer from './containers/TodosListContainer';
+import styled, {createGlobalStyle} from 'styled-components';
+import TodosBase from './containers/TodosBase';
+import TodosHeadContainer from './containers/TodosHeadContainer';
+import TodoCreateContainer from './containers/TodoCreateContainer';
+
+const GlobalStyle = createGlobalStyle`
+body{ 
+  background: #e9ecef;
+} 
+`;
 
 function App() {
-  return <TodosContainer />;
+  return (
+    <>
+      <GlobalStyle />
+      <TodosBase>
+        <TodosHeadContainer />
+        <TodosContainer />
+        <TodoCreateContainer />
+      </TodosBase>
+    </>
+  );
 }
 
 export default App;

@@ -1,10 +1,13 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-type Props = {};
+type TodoListProps = {
+  onToggle: () => void;
+  done: boolean;
+};
 
-function TodosList({}: Props) {
-  return <TodoItem />;
+function TodosList({done, onToggle}: TodoListProps) {
+  return <TodoItem done={done} onToggle={onToggle} />;
 }
 
 export default TodosList;

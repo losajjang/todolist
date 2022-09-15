@@ -1,5 +1,5 @@
 import React from 'react';
-import TodosHead from '../components/TodosHead';
+import TodosHead from '../components/TodoHead';
 
 function TodosHeadContainer() {
   const today = new Date();

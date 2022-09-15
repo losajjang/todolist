@@ -1,8 +1,8 @@
 import React from 'react';
-import TodosContainer from './containers/TodosListContainer';
+import TodosContainer from './containers/TodoListContainer';
 import styled, {createGlobalStyle} from 'styled-components';
-import TodosBase from './containers/TodosBase';
-import TodosHeadContainer from './containers/TodosHeadContainer';
+import TodosBase from './containers/TodoBase';
+import TodosHeadContainer from './containers/TodoHeadContainer';
 import TodoCreateContainer from './containers/TodoCreateContainer';
 
 const GlobalStyle = createGlobalStyle`

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import TodoCreate from '../components/TodoCreate';
 import {addTodo} from '../modules/todos/todos';

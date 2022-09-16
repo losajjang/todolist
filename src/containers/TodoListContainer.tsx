@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import TodosList from '../components/TodoList';
+import TodoList from '../components/TodoList';
+import TodoNone from '../components/TodoNone';
 import {RootState} from '../modules';
 import {deleteTodo, toggleTodo} from '../modules/todos/todos';
 
-function TodosListContainer() {
+function TodoListContainer() {
   const todos = useSelector((state: RootState) => state.todos);
 
   const dispatch = useDispatch();
@@ -13,7 +14,15 @@ function TodosListContainer() {
 
   const onToggle = (id: number) => dispatch(toggleTodo(id));
 
-  return <TodosList onToggle={onToggle} todos={todos} onDelete={onDelete} />;
+  return (
+    <>
+      {todos.length === 0 ? (
+        <TodoNone />
+      ) : (
+        <TodoList onToggle={onToggle} todos={todos} onDelete={onDelete} />
+      )}
+    </>
+  );
 }
 
-export default TodosListContainer;
+export default TodoListContainer;

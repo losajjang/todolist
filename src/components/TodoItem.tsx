@@ -23,7 +23,7 @@ const Remove = styled.div`
   &:hover {
     color: #ff6b6b;
   }
-  /* display: none; */
+  display: none;
 `;
 
 const TodoItemBox = styled.div`

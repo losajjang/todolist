@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TodosBaseContainer = styled.div`
+const TodoBaseContainer = styled.div`
   background: white;
   width: 500px;
   height: 700px;
@@ -13,8 +13,8 @@ const TodosBaseContainer = styled.div`
   flex-direction: column;
 `;
 
-function TodosBase({children}: {children: React.ReactNode}) {
-  return <TodosBaseContainer>{children}</TodosBaseContainer>;
+function TodoBase({children}: {children: React.ReactNode}) {
+  return <TodoBaseContainer>{children}</TodoBaseContainer>;
 }
 
-export default TodosBase;
+export default TodoBase;

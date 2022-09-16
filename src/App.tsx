@@ -1,8 +1,8 @@
 import React from 'react';
-import TodosContainer from './containers/TodoListContainer';
-import styled, {createGlobalStyle} from 'styled-components';
-import TodosBase from './containers/TodoBase';
-import TodosHeadContainer from './containers/TodoHeadContainer';
+import TodoListContainer from './containers/TodoListContainer';
+import {createGlobalStyle} from 'styled-components';
+import TodoBase from './containers/TodoBase';
+import TodoHeadContainer from './containers/TodoHeadContainer';
 import TodoCreateContainer from './containers/TodoCreateContainer';
 
 const GlobalStyle = createGlobalStyle`
@@ -15,11 +15,11 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <TodosBase>
-        <TodosHeadContainer />
-        <TodosContainer />
+      <TodoBase>
+        <TodoHeadContainer />
+        <TodoListContainer />
         <TodoCreateContainer />
-      </TodosBase>
+      </TodoBase>
     </>
   );
 }

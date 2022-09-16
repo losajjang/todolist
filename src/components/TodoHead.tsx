@@ -1,5 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Todo} from '../modules/todos/todos';
+
+type TodosHeadProps = {
+  dateString: string;
+  dayName: string;
+  undoneTask: Todo[];
+};
 
 const TodosHeadBase = styled.div`
   padding: 40px 30px 20px 30px;
@@ -23,6 +30,14 @@ const DayNameBox = styled.div`
   margin-top: 4px;
   font-size: 21px;
   color: #868e96;
+
+  h1 {
+    position: absolute;
+    transform: translate(5%, -70%);
+    display: inline;
+    font-size: 28px;
+    color: #fa894c;
+  }
 `;
 
 const UnDoneTaskBox = styled.div`
@@ -37,18 +52,21 @@ const UnDoneTaskBox = styled.div`
   }
 `;
 
-type TodosHeadProps = {
-  dateString: string;
-  dayName: string;
-};
-
-function TodosHead({dateString, dayName}: TodosHeadProps) {
+function TodosHead({dateString, dayName, undoneTask}: TodosHeadProps) {
   return (
     <TodosHeadBase>
       <TodayBox>{dateString}</TodayBox>
-      <DayNameBox className={dayName}>{dayName}</DayNameBox>
+      <DayNameBox className={dayName}>
+        {dayName === '금요일' ? (
+          <span>
+            {dayName}: <h1>불금입니다!!!</h1>
+          </span>
+        ) : (
+          dayName
+        )}
+      </DayNameBox>
       <UnDoneTaskBox>
-        할 일 <span>0개</span> 남음
+        할 일 <span>{undoneTask.length}개</span> 남음
       </UnDoneTaskBox>
     </TodosHeadBase>
   );

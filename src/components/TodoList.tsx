@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Todo} from '../modules/todos/todos';
 import TodoItem from './TodoItem';
 
 type TodoListProps = {
-  onToggle: () => void;
-  done: boolean;
+  onToggle: (id: number) => void;
+  onDelete: (id: number) => void;
+  todos: Todo[];
 };
 
 const TodoListBlock = styled.div`
@@ -13,10 +15,17 @@ const TodoListBlock = styled.div`
   overflow-y: auto;
 `;
 
-function TodosList({done, onToggle}: TodoListProps) {
+function TodosList({onToggle, onDelete, todos}: TodoListProps) {
   return (
     <TodoListBlock>
-      <TodoItem done={done} onToggle={onToggle} />
+      {todos.map(todo => (
+        <TodoItem
+          onToggle={onToggle}
+          onDelete={onDelete}
+          todo={todo}
+          key={todo.id}
+        />
+      ))}
     </TodoListBlock>
   );
 }

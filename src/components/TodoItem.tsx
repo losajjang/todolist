@@ -1,10 +1,12 @@
 import React from 'react';
 import {MdDone, MdDelete} from 'react-icons/md';
 import styled, {css} from 'styled-components';
+import {Todo} from '../modules/todos/todos';
 
 type TodoItemProps = {
-  onToggle: () => void;
-  done: boolean;
+  onToggle: (id: number) => void;
+  onDelete: (id: number) => void;
+  todo: Todo;
 };
 
 type TodoItemDoneProps = {
@@ -67,14 +69,18 @@ const Text = styled.div<TodoItemDoneProps>`
     `}
 `;
 
-function TodoItem({done, onToggle}: TodoItemProps) {
+function TodoItem({onToggle, onDelete, todo}: TodoItemProps) {
+  const handleToggle = () => onToggle(todo.id);
+
+  const handleDelete = () => onDelete(todo.id);
+
   return (
     <TodoItemBox>
-      <CheckCircle done={done} onClick={onToggle}>
-        {done && <MdDone />}
+      <CheckCircle done={todo.done} onClick={handleToggle}>
+        {todo.done && <MdDone />}
       </CheckCircle>
-      <Text done={done}>todo</Text>
-      <Remove>
+      <Text done={todo.done}>{todo.text}</Text>
+      <Remove onClick={handleDelete}>
         <MdDelete />
       </Remove>
     </TodoItemBox>

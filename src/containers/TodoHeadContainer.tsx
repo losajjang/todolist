@@ -1,9 +1,9 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import TodosHead from '../components/TodoHead';
+import TodoHead from '../components/TodoHead';
 import { RootState } from '../modules';
 
-function TodosHeadContainer() {
+function TodoHeadContainer() {
   const todos = useSelector((state:RootState) => state.todos);
 
   const undoneTask = todos.filter(todo => !todo.done)
@@ -16,7 +16,7 @@ function TodosHeadContainer() {
   });
   const dayName = today.toLocaleDateString('ko-KR', {weekday: 'long'});
 
-  return <TodosHead dateString={dateString} dayName={dayName} undoneTask={undoneTask} />;
+  return <TodoHead dateString={dateString} dayName={dayName} undoneTask={undoneTask} />;
 }
 
-export default TodosHeadContainer;
+export default TodoHeadContainer;

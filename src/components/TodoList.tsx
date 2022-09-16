@@ -15,7 +15,7 @@ const TodoListBlock = styled.div`
   overflow-y: auto;
 `;
 
-function TodosList({onToggle, onDelete, todos}: TodoListProps) {
+function TodoList({onToggle, onDelete, todos}: TodoListProps) {
   return (
     <TodoListBlock>
       {todos.map(todo => (
@@ -30,4 +30,4 @@ function TodosList({onToggle, onDelete, todos}: TodoListProps) {
   );
 }
 
-export default TodosList;
+export default TodoList;
